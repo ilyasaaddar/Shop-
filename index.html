@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Your Selection</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F8F9FA;
+            color: #2C3E50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .sub-headline {
+            font-size: 1.1em;
+            color: #5D6D7E;
+            max-width: 600px;
+            margin: 0 auto 50px auto; /* Increased bottom margin for more space */
+        }
+
+        .products-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            flex: 1;
+            min-width: 220px;
+            max-width: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* New styles for the product title */
+        .product-card h3 {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #2C3E50;
+        }
+
+        .product-card p {
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #5D6D7E;
+        }
+
+        .product-button {
+            display: inline-block;
+            background-color: #3498DB;
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-button:hover {
+            background-color: #2980B9;
+        }
+        
+        .footer-text {
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #95A5A6;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .sub-headline {
+                font-size: 1em;
+            }
+            .products-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Please Select the Product You're Here For</h1>
+        <p class="sub-headline">To continue, simply tap the product you just saw to visit the official and secure website.</p>
+        
+        <div class="products-container">
+            
+            <!-- PRODUCT 1: Testolan -->
+            <div class="product-card">
+                <h3>Testolan</h3>
+                <p>For Strength & Masculine Vitality</p>
+                <!-- === PLACE YOUR Testolan AFFILIATE LINK HERE === -->
+                <a href="https://nplink.net/opukde65" class="product-button">Continue to Official Site</a>
+            </div>
+
+            <!-- PRODUCT 2: Fat Burn Active -->
+            <div class="product-card">
+                <h3>Fat Burn Active</h3>
+                <p>For an Active & Lean Physique</p>
+                <!-- === PLACE YOUR Fat Burn Active AFFILIATE LINK HERE === -->
+                <a href="https://nplink.net/hj9m1ow2" class="product-button">Continue to Official Site</a>
+            </div>
+
+            <!-- PRODUCT 3: NuviaLab Vitality -->
+            <div class="product-card">
+                <h3>NuviaLab Vitality</h3>
+                <p>For Sustained Energy & Vitality</p>
+                <!-- === PLACE YOUR NuviaLab Vitality AFFILIATE LINK HERE === -->
+                <a href="https://nplink.net/s25hydtz" class="product-button">Continue to Official Site</a>
+            </div>
+
+        </div>
+
+        <p class="footer-text">You will be redirected to the official and secure product website.</p>
+    </div>
+
+</body>
+</html>
