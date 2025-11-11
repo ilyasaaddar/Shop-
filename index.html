@@ -3,156 +3,441 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirm Your Selection</title>
+    <title>Premium Health Products - Enhance Your Life</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #F8F9FA;
-            color: #2C3E50;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        /* CSS Styles */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e67e22;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+        }
+        
+        * {
             margin: 0;
-            padding: 20px;
-            text-align: center;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
-        .container {
-            max-width: 800px;
-            width: 100%;
-        }
-
-        h1 {
-            font-size: 2.8em;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .sub-headline {
-            font-size: 1.1em;
-            color: #5D6D7E;
-            max-width: 600px;
-            margin: 0 auto 50px auto; /* Increased bottom margin for more space */
-        }
-
-        .products-container {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        .product-card {
-            background-color: #FFFFFF;
-            border-radius: 12px;
-            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
-            padding: 30px;
-            flex: 1;
-            min-width: 220px;
-            max-width: 250px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        /* New styles for the product title */
-        .product-card h3 {
-            font-size: 1.5em;
-            font-weight: 700;
-            margin-top: 0;
-            margin-bottom: 10px;
-            color: #2C3E50;
-        }
-
-        .product-card p {
-            font-size: 1em;
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
             line-height: 1.6;
-            margin-bottom: 25px;
-            color: #5D6D7E;
         }
-
-        .product-button {
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            background-color: white;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .hero h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            height: 250px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-content {
+            padding: 25px;
+        }
+        
+        .product-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .product-content p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .btn {
             display: inline-block;
-            background-color: #3498DB;
-            color: #ffffff;
+            background: var(--accent);
+            color: white;
             padding: 12px 25px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 1em;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-
-        .product-button:hover {
-            background-color: #2980B9;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
         
-        .footer-text {
-            margin-top: 50px;
-            font-size: 0.9em;
-            color: #95A5A6;
+        .btn:hover {
+            background: #d35400;
+            transform: scale(1.05);
         }
-
+        
+        .features {
+            background: var(--light);
+            padding: 60px 0;
+            margin: 50px 0;
+            border-radius: 15px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .feature-item h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .testimonials {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .testimonials h2 {
+            color: var(--primary);
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 70px 0;
+            text-align: center;
+            border-radius: 15px;
+            margin: 50px 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-btn {
+            background: white;
+            color: var(--primary);
+            font-size: 1.1rem;
+            padding: 15px 40px;
+        }
+        
+        .cta-btn:hover {
+            background: var(--light);
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
+            header h1 {
+                font-size: 2rem;
             }
-            .sub-headline {
-                font-size: 1em;
+            
+            .hero h2 {
+                font-size: 1.8rem;
             }
-            .products-container {
-                flex-direction: column;
-                align-items: center;
+            
+            .products-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <h1>Please Select the Product You're Here For</h1>
-        <p class="sub-headline">To continue, simply tap the product you just saw to visit the official and secure website.</p>
-        
-        <div class="products-container">
-            
-            <!-- PRODUCT 1: Locerin -->
-            <div class="product-card">
-                <h3>Locerin</h3>
-                <p>For Hair Loss Treatment</p>
-                <a href="https://nplink.net/gouyklyh" class="product-button">Continue to Official Site</a>
-            </div>
-
-            <!-- PRODUCT 2: Testolan -->
-            <div class="product-card">
-                <h3>Testolan</h3>
-                <p>For Strength & Masculine Vitality</p>
-                <a href="https://nplink.net/opukde65" class="product-button">Continue to Official Site</a>
-            </div>
-
-            <!-- PRODUCT 3: Fat Burn Active -->
-            <div class="product-card">
-                <h3>Fat Burn Active</h3>
-                <p>For an Active & Lean Physique</p>
-                <a href="https://nplink.net/hj9m1ow2" class="product-button">Continue to Official Site</a>
-            </div>
-
-            <!-- PRODUCT 4: NuviaLab Vitality -->
-            <div class="product-card">
-                <h3>NuviaLab Vitality</h3>
-                <p>For Sustained Energy & Vitality</p>
-                <a href="https://nplink.net/s25hydtz" class="product-button">Continue to Official Site</a>
-            </div>
-
+    <header>
+        <div class="container">
+            <h1>Premium Health Products to Enhance Your Life</h1>
+            <p>Discover our innovative product range specifically designed to boost your health and well-being</p>
         </div>
-
-        <p class="footer-text">You will be redirected to the official and secure product website.</p>
-    </div>
-
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h2>Make Your Health a Priority with Our Innovative Products</h2>
+            <p>We offer a carefully selected range of high-quality supplements developed to help you achieve your health goals. Each product is designed based on the latest scientific research to ensure effectiveness and safety.</p>
+            <a href="#products" class="btn">Discover Products</a>
+        </div>
+    </section>
+    
+    <section id="products" class="container">
+        <h2 style="text-align: center; color: var(--primary); margin-bottom: 40px; font-size: 2rem;">Our Premium Products</h2>
+        
+        <div class="products-grid">
+            <!-- Locerin -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://i.ibb.co/9PjkvsD/Locerin-9.jpg" alt="Locerin">
+                </div>
+                <div class="product-content">
+                    <h3>Locerin</h3>
+                    <p>Advanced treatment for strengthening hair and preventing hair loss. Specially designed for women suffering from hair loss or weak hair, it provides a unique formula that nourishes hair follicles and promotes growth.</p>
+                    <a href="https://nplink.net/gouyklyh" class="btn">Order Now from Official Website</a>
+                </div>
+            </div>
+            
+            <!-- Fat Burn Active -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://i.ibb.co/WvxMYBBf/FBA-pro-08.jpg" alt="Fat Burn Active">
+                </div>
+                <div class="product-content">
+                    <h3>Fat Burn Active</h3>
+                    <p>Effective fat burner that helps accelerate metabolism and increase fat burning. Ideal for those following a diet and exercising to achieve the best weight loss results.</p>
+                    <a href="https://nplink.net/hj9m1ow2" class="btn">Order Now from Official Website</a>
+                </div>
+            </div>
+            
+            <!-- Testolan -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://i.ibb.co/tTwQpBTk/Testolan-Pro6.jpg" alt="Testolan">
+                </div>
+                <div class="product-content">
+                    <h3>Testolan</h3>
+                    <p>Natural supplement designed to support healthy testosterone levels in men. Helps improve physical strength, energy and athletic performance through safe natural ingredients.</p>
+                    <a href="https://nplink.net/opukde65" class="btn">Order Now from Official Website</a>
+                </div>
+            </div>
+            
+            <!-- NuviaLab Vitality -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://i.ibb.co/TxttS1RC/Nuvia-Lab-Vitality-pro-8.jpg" alt="NuviaLab Vitality">
+                </div>
+                <div class="product-content">
+                    <h3>NuviaLab Vitality</h3>
+                    <p>Advanced dietary supplement designed to boost energy and vitality. Contains a unique blend of vitamins, minerals and natural ingredients that support vital body functions and improve daily performance.</p>
+                    <a href="https://nplink.net/s25hydtz" class="btn">Order Now from Official Website</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--primary); margin-bottom: 50px; font-size: 2rem;">Why Choose Our Products?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <h3>High Quality</h3>
+                    <p>All our products are made from high-quality ingredients and certified by specialized laboratories</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Scientifically Supported</h3>
+                    <p>Our formulations are based on the latest scientific research to ensure effectiveness and safety</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Fast Shipping</h3>
+                    <p>We provide fast and secure shipping service to deliver your products to your doorstep</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">💯</div>
+                    <h3>Satisfaction Guarantee</h3>
+                    <p>We guarantee your satisfaction with our products and offer an easy return policy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Customers Say?</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"After using Locerin for three months, my hair has become thicker and stronger than ever before. I'm amazed by the results!"</p>
+                    <p class="testimonial-author">- Sarah M.</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Fat Burn Active helped me lose 8 kilograms in two months with a balanced diet and regular exercise. Amazing results!"</p>
+                    <p class="testimonial-author">- Lisa T.</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"NuviaLab Vitality gave me the energy boost I needed to get through my busy workdays. I feel more focused and productive."</p>
+                    <p class="testimonial-author">- John D.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="container">
+            <h2>Start Your Journey to Better Health Today!</h2>
+            <p>Don't postpone improving your health and well-being. Choose the right product for you and start your journey towards a healthier and more vibrant life.</p>
+            <a href="#products" class="btn cta-btn">Order Your Product Now</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Premium Health Products</h3>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Contact Us</a>
+                </div>
+                <p class="copyright">All Rights Reserved &copy; 2023</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
